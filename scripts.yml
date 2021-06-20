@@ -1,0 +1,16 @@
+allow:
+  - write=app.log
+  # - env
+
+scripts:
+  start:
+    desc: Runs main script
+    cmd: main.ts
+  # test: deno test
+  lint: deno lint
+  format: deno fmt
+  pre-commit:
+    cmd:
+      - vr lint
+      - vr format
+    gitHook: pre-commit
