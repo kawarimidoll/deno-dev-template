@@ -1985,4 +1985,3 @@ declare function addEventListener(
   callback: FetchEventListenerOrFetchEventListenerObject | null,
   options?: boolean | AddEventListenerOptions | undefined,
 ): void;
-

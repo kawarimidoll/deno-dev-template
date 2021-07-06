@@ -1,6 +1,6 @@
 allow:
   - write=app.log
-  # - read=.env,.env.example,.env.defaults
+  # - read
   # - env
   # - net
 
@@ -13,9 +13,9 @@ scripts:
     cmd: deployctl run --libs="" --watch ./server.ts
   # test: deno test
   lint: deno lint
-  format: deno fmt
+  fmt: deno fmt
   pre-commit:
     cmd:
       - vr lint
-      - vr format
+      - vr fmt
     gitHook: pre-commit
