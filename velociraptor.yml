@@ -3,6 +3,8 @@ allow:
   # - read
   # - env
   # - net
+# envFile:
+#   - .env
 
 scripts:
   start:

@@ -1,7 +1,9 @@
-import { config } from "https://deno.land/x/dotenv@v2.0.0/mod.ts";
+export default function (envName: string) {
+  const envValue = Deno.env.get(envName);
 
-const {
-  SECRET_TOKEN,
-} = config({ safe: true });
+  if (!envValue) {
+    throw new Error(`No token: ${envName}`);
+  }
 
-export { SECRET_TOKEN };
+  return envValue;
+}
