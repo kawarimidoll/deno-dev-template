@@ -21,6 +21,8 @@ $ # install hook
 $ vr
 ```
 
+The scripts are defined in [velociraptor.yml](/velociraptor.yml).
+
 ### Run main.ts
 
 ```
@@ -36,6 +38,24 @@ $ # install deployctl
 $ deno install --allow-read --allow-write --allow-env --allow-net --allow-run --no-check -f https://deno.land/x/deploy/deployctl.ts
 $ # start server
 $ vr dev
+```
+
+### Run tests
+
+Need to create `.env`.
+
+```
+$ # create .env
+$ cp .env.example .env
+$ # run tests
+$ vr test
+```
+
+### Run CI
+
+```
+$ # run lint, format, tests
+$ vr ci
 ```
 
 ## Logger
