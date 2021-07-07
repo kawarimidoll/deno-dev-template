@@ -1,11 +1,14 @@
 # deno-dev-template
 
-[![ci](https://github.com/kawarimidoll/deno-dev-template/workflows/ci/badge.svg)](.github/workflows/ci/yml)
+[![ci](https://github.com/kawarimidoll/deno-dev-template/workflows/ci/badge.svg)](.github/workflows/ci.yml)
 [![deno.land](https://img.shields.io/badge/deno-%5E1.0.0-green?logo=deno)](https://deno.land)
 [![vr scripts](https://badges.velociraptor.run/flat.svg)](https://velociraptor.run)
 [![LICENSE](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE)
 
 my deno template
+
+Confirm there is `~/.deno/bin` in `$PATH` to use the scripts installed by
+`deno install`.
 
 ## Run with Velociraptor
 
@@ -14,10 +17,6 @@ Need to install [Velociraptor](https://velociraptor.run/).
 ```
 $ # install velociraptor
 $ deno install -qAn vr https://deno.land/x/velociraptor/cli.ts
-$ # for zsh
-$ echo 'export PATH="/Users/kawarimidoll/.deno/bin:$PATH"' > ~/.zshrc
-$ # for bash
-$ # echo 'export PATH="/Users/kawarimidoll/.deno/bin:$PATH"' > ~/.bashrc
 $ # install hook
 $ vr
 ```
@@ -26,6 +25,17 @@ $ vr
 
 ```
 $ vr start
+```
+
+### Start server.ts
+
+Need to install [deployctl](https://deno.com/deploy/docs/deployctl).
+
+```
+$ # install deployctl
+$ deno install --allow-read --allow-write --allow-env --allow-net --allow-run --no-check -f https://deno.land/x/deploy/deployctl.ts
+$ # start server
+$ vr dev
 ```
 
 ## Logger
