@@ -16,10 +16,16 @@ scripts:
   test: deno test
   # test: echo 'There is no test now.'
   lint: deno lint
-  fmt: deno fmt
+  fmt:
+    cmd: |
+      FILES=$(git diff --cached --name-only --diff-filter=ACMR "*.ts")
+      [ -z "$FILES" ] && exit 0
+      echo "$FILES" | xargs deno fmt
+      echo "$FILES" | xargs git add
+    desc: Formats staged files
   ci:
     - vr lint
-    - vr fmt --check
+    - deno fmt --check
     - vr test
   pre-commit:
     cmd:
