@@ -49,7 +49,7 @@ scripts:
     allow:
       - read
     env:
-      VR_HOOKS: false
+      VR_HOOKS: "false"
     cmd:
       - deno lint
       - deno fmt --check
