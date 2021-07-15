@@ -13,4 +13,4 @@ jobs:
         run: |
           cp .env.example .env
           echo SAMPLE_TOKEN=sample_token >> .env
-      - run: vr ci
+      - run: VR_HOOKS=false vr ci
