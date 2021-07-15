@@ -12,7 +12,7 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          echo SECRET_TOKEN=secret_token >> .env
+          echo SAMPLE_TOKEN=sample_token >> .env
       - name: Run CI
         env:
           VR_HOOKS: "false"
