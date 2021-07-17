@@ -8,13 +8,17 @@ envFile:
   - .env
 
 scripts:
-  start:
+  main:
     desc: Runs main script
     cmd: main.ts
 
-  dev:
+  server:
     desc: Starts local server
     cmd: deployctl run --libs="" --watch --env=.env server.ts
+
+  deps:
+    desc: Update dependencies with ensuring pass tests
+    cmd: udd deps.ts --test="vr test"
 
   lint:
     cmd: deno lint
