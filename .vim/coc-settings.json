@@ -2,6 +2,6 @@
   "deno.enable": true,
   "deno.lint": true,
   "deno.unstable": true,
-  "prettier.disableLanguages": ["typescript"],
+  "prettier.disableLanguages": ["typescript", "javascript", "markedown"],
   "typescript.format.enabled": false
 }
