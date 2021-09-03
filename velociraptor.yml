@@ -4,8 +4,8 @@ allow:
   # - net
   - env
 
-envFile:
-  - .env
+# envFile:
+#   - .env
 
 scripts:
   main:
@@ -56,9 +56,9 @@ scripts:
       - vr fmt --check
       - vr test
 
-  # commitlint:
-  #   # dependencies: commitlint and @commitlint/config-conventional
-  #   # yarn global add commitlint @commitlint/config-conventional
-  #   desc: Checks commit messages format with commitlint
-  #   cmd: commitlint -x @commitlint/config-conventional -e ${GIT_ARGS[1]}
-  #   gitHook: commit-msg
+  commitlint:
+    # dependencies: commitlint and @commitlint/config-conventional
+    # yarn global add commitlint @commitlint/config-conventional
+    desc: Checks commit messages format with commitlint
+    cmd: commitlint -x @commitlint/config-conventional -e ${GIT_ARGS[1]}
+    gitHook: commit-msg
