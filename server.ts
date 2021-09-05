@@ -1,7 +1,10 @@
 /// <reference path="./deploy.d.ts" />
 
 const listener = Deno.listen({ port: 8080 });
-console.log(`HTTP server listening on http://localhost:${listener.addr.port}`);
+if (!Deno.env.get("DENO_DEPLOYMENT_ID")) {
+  const { hostname, port } = listener.addr;
+  console.log(`HTTP server listening on http://${hostname}:${port}`);
+}
 
 async function handleConn(conn: Deno.Conn) {
   const httpConn = Deno.serveHttp(conn);
