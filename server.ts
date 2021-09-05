@@ -15,6 +15,9 @@ async function handler(request: Request, conn: Deno.Conn) {
     return new Response("ok");
   }
 
+  const { href, origin, host, pathname, hash, search } = new URL(request.url);
+  console.log({ href, origin, host, pathname, hash, search });
+
   const readme = await Deno.readTextFile("./README.md");
 
   return new Response(readme, {
