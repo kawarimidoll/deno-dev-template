@@ -1,8 +1,9 @@
 name: update-deno-dependencies
 
 on:
-  schedule: [false] # disable in template
-    # - cron: "0 0 * * *"
+  workflow_dispatch:
+  # schedule: # disable in template
+  #   - cron: "0 0 * * *"
 
 jobs:
   udd:
