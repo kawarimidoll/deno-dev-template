@@ -20,6 +20,7 @@ async function handler(request: Request, conn: Deno.Conn) {
 
   const { href, origin, host, pathname, hash, search } = new URL(request.url);
   console.log({ href, origin, host, pathname, hash, search });
+  console.log({ referrer: request.referrer });
 
   const readme = await Deno.readTextFile("./README.md");
 
