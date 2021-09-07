@@ -14,13 +14,8 @@ async function handleConn(conn: Deno.Conn) {
 }
 
 async function handler(request: Request, conn: Deno.Conn) {
-  if (request.url.includes("favicon")) {
-    return new Response("ok");
-  }
-
   const { href, origin, host, pathname, hash, search } = new URL(request.url);
   console.log({ href, origin, host, pathname, hash, search });
-  console.log({ referrer: request.referrer });
 
   const readme = await Deno.readTextFile("./README.md");
 
