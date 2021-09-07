@@ -1,4 +1,5 @@
 name: update-deno-dependencies
+# https://gist.github.com/kawarimidoll/2f43533e5fbe319f4bc9bb255c73a02d
 
 on:
   workflow_dispatch:
