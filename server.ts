@@ -1,4 +1,4 @@
-/// <reference path="./deploy.d.ts" />
+/// <reference path="./_deploy.d.ts" />
 
 const listener = Deno.listen({ port: 8080 });
 if (!Deno.env.get("DENO_DEPLOYMENT_ID")) {
