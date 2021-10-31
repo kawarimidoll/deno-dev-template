@@ -1,32 +1,29 @@
-/// <reference path="./_deploy.d.ts" />
+import { listenAndServe } from "https://deno.land/std@0.113.0/http/server.ts";
 
-const listener = Deno.listen({ port: 8080 });
+function isNetAddr(addr: Deno.Addr): addr is Deno.NetAddr {
+  return Object.hasOwn(addr, "hostname");
+}
+
+const port = ":8080";
 if (!Deno.env.get("DENO_DEPLOYMENT_ID")) {
-  const { hostname, port } = listener.addr;
-  console.log(`HTTP server listening on http://${hostname}:${port}`);
+  console.log(`HTTP server listening on http://localhost${port}`);
 }
 
-async function handleConn(conn: Deno.Conn) {
-  const httpConn = Deno.serveHttp(conn);
-  for await (const e of httpConn) {
-    e.respondWith(handler(e.request, conn));
-  }
-}
-
-async function handler(request: Request, conn: Deno.Conn) {
+await listenAndServe(port, async (request, conn) => {
   const { href, origin, host, pathname, hash, search } = new URL(request.url);
   console.log({ href, origin, host, pathname, hash, search });
 
   const readme = await Deno.readTextFile("./README.md");
 
+  const { localAddr, remoteAddr } = conn;
+  if (!isNetAddr(localAddr) || !isNetAddr(remoteAddr)) {
+    throw new Error("not net addr");
+  }
+
   return new Response(readme, {
     headers: {
-      "x-localaddr": `${conn.localAddr.hostname}:${conn.localAddr.port}`,
-      "x-remoteaddr": `${conn.remoteAddr.hostname}:${conn.remoteAddr.port}`,
+      "x-local-addr": `${localAddr.hostname}:${localAddr.port}`,
+      "x-remote-addr": `${remoteAddr.hostname}:${remoteAddr.port}`,
     },
   });
-}
-
-for await (const conn of listener) {
-  handleConn(conn);
-}
+});
