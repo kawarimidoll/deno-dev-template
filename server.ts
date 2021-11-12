@@ -1,15 +1,15 @@
-import { listenAndServe } from "https://deno.land/std@0.113.0/http/server.ts";
+import { ConnInfo, serve } from "https://deno.land/std@0.114.0/http/server.ts";
 
 function isNetAddr(addr: Deno.Addr): addr is Deno.NetAddr {
   return Object.hasOwn(addr, "hostname");
 }
 
-const port = ":8080";
+const addr = ":8080";
 if (!Deno.env.get("DENO_DEPLOYMENT_ID")) {
-  console.log(`HTTP server listening on http://localhost${port}`);
+  console.log(`HTTP server listening on http://localhost${addr}`);
 }
 
-await listenAndServe(port, async (request, conn) => {
+await serve(async (request: Request, conn: ConnInfo) => {
   const { href, origin, host, pathname, hash, search } = new URL(request.url);
   console.log({ href, origin, host, pathname, hash, search });
 
@@ -26,4 +26,4 @@ await listenAndServe(port, async (request, conn) => {
       "x-remote-addr": `${remoteAddr.hostname}:${remoteAddr.port}`,
     },
   });
-});
+}, { addr });
