@@ -5,6 +5,13 @@
   "deno.suggest.imports.hosts": {
     "https://deno.land/": true
   },
-  "prettier.disableLanguages": ["typescript", "javascript", "markdown"],
+  "deno.config": "./deno.jsonc",
+  "prettier.disableLanguages": [
+    "typescript",
+    "javascript",
+    "typescriptreact",
+    "javascriptreact",
+    "markdown"
+  ],
   "typescript.format.enabled": false
 }
