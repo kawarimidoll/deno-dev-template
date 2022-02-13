@@ -3,7 +3,9 @@
   "deno.lint": true,
   "deno.unstable": true,
   "deno.suggest.imports.hosts": {
-    "https://deno.land/": true
+    "https://deno.land": true,
+    "https://cdn.nest.land": true,
+    "https://crux.land": true
   },
   "deno.config": "./deno.jsonc",
   "prettier.disableLanguages": [
@@ -13,5 +15,5 @@
     "javascriptreact",
     "markdown"
   ],
-  "typescript.format.enabled": false
+  "tsserver.enable": false
 }
