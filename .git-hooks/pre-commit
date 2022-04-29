@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+
+FILES=$(git diff --staged --name-only --diff-filter=ACMR)
+echo "$FILES" | grep '[jt]sx\?$' | xargs --no-run-if-empty deno lint
+echo "$FILES" | grep '\([jt]sx\?\|jsonc\?\|md\)$' | xargs --no-run-if-empty deno fmt

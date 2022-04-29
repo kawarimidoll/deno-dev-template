@@ -34,12 +34,7 @@ scripts:
     cmd: deno fmt --ignore=cov_profile
 
   pre-commit:
-    cmd: |
-      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
-          [ -z "$FILES" ] && exit 0
-          echo "$FILES" | xargs deno lint
-          echo "$FILES" | xargs deno fmt
-          # echo "$FILES" | xargs git add
+    cmd: sh .git-hooks/pre-commit
     desc: Lints and formats staged files
     gitHook: pre-commit
 
