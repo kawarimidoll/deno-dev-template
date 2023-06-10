@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/hook.sh"
+
+deno run --allow-read --allow-env --allow-run --allow-write scripts/lint-staged.ts
