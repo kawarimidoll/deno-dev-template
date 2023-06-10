@@ -19,7 +19,7 @@
     "lint": "deno lint --ignore=cov_profile",
     "fmt": "deno fmt --ignore=cov_profile",
     "ci": "deno task lint && deno task fmt --check && deno task test",
-    "deps": "deno run --allow-read --allow-write --allow-net --allow-run https://deno.land/x/udd/main.ts --test='deno task test' deno.jsonc *.ts",
+    "deps": "deno run --allow-read --allow-write --allow-net --allow-run https://deno.land/x/udd/main.ts --test='deno task test' deno.jsonc $(find . -name '*.ts')",
     // git hooks
     "setup-hooks": "deno run --allow-read --allow-run scripts/setup-hooks.ts",
     "commit-msg": "npx commitlint -x @commitlint/config-conventional -e \"$1\"",
