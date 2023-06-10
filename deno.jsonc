@@ -14,7 +14,7 @@
     "main": "deno task run main.ts",
     "start": "deno task run --watch server.ts",
     // development
-    "test": "deno test --allow-env --allow-read --allow-net",
+    "test": "deno test --allow-env --allow-read --allow-net --allow-none",
     "cov": "deno task test --coverage=cov_profile; deno coverage cov_profile",
     "lint": "deno lint --ignore=cov_profile",
     "fmt": "deno fmt --ignore=cov_profile",
@@ -23,7 +23,7 @@
     // git hooks
     "setup-hooks": "deno run --allow-read --allow-run scripts/setup-hooks.ts",
     "commit-msg": "npx commitlint -x @commitlint/config-conventional -e \"$1\"",
-    "pre-commit": "deno run --allow-read scripts/lint-staged-config.ts | npx lint-staged --config -",
+    "pre-commit": "deno run --allow-read --allow-env --allow-run --allow-write scripts/lint-staged.ts",
     "pre-push": "deno task ci"
   }
 }
