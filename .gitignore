@@ -1,4 +1,3 @@
-!.vim
 !.env.example
 *.log
 cov_profile
