@@ -3,7 +3,8 @@
     "std/": "https://deno.land/std@0.191.0/"
   },
   "lint-staged": {
-    "*": "deno lint && deno fmt"
+    "*": "deno lint && deno fmt",
+    "deno.jsonc": "deno task setup-hooks"
   },
   "tasks": {
     // general permissions
@@ -22,7 +23,7 @@
     // git hooks
     "setup-hooks": "deno run --allow-read --allow-run scripts/setup-hooks.ts",
     "commit-msg": "npx commitlint -x @commitlint/config-conventional -e \"$1\"",
-    "pre-commit": "deno run --allow-read --allow-env --allow-run --allow-write scripts/lint-staged.ts",
+    "pre-commit": "deno run --allow-read scripts/lint-staged-config.ts | npx lint-staged --config -",
     "pre-push": "deno task ci"
   }
 }
