@@ -65,7 +65,7 @@ const baseArgs = [
   "--allow-read",
   "--allow-run",
   "--allow-write",
-  "https://deno.land/x/deno_hooks/mod.ts",
+  "https://deno.land/x/deno_hooks@0.1.1/mod.ts",
 ];
 const decoder = new TextDecoder();
 
