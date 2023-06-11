@@ -1,8 +1,8 @@
 // Thank you for https://github.com/Yakiyo/deno_hooks
 
-import { exists } from "std/fs/exists.ts";
-import { parse } from "std/jsonc/parse.ts";
-import { join } from "std/path/mod.ts";
+import { parse } from "https://deno.land/std/jsonc/parse.ts";
+import { exists } from "https://deno.land/std/fs/exists.ts";
+import { join } from "https://deno.land/std/path/mod.ts";
 
 const KNOWN_HOOKS = [
   "applypatch-msg",
