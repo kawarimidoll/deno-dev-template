@@ -54,12 +54,15 @@ Some utility scripts is in `scripts` directory:
   },
   "hooks_dir": ".my_hooks",
   "tasks": {
-    "setup-hooks": "deno run --allow-read --allow-run scripts/setup-hooks.ts",
-    "pre-commit": "deno run --allow-read --allow-env --allow-run --allow-write scripts/lint-staged.ts",
+    "setup-hooks": "deno run --allow-read --allow-run https://pax.deno.dev/kawarimidoll/deno-dev-template/scripts/setup-hooks.ts",
+    "pre-commit": "deno run --allow-read --allow-env --allow-run --allow-write https://pax.deno.dev/kawarimidoll/deno-dev-template/scripts/lint-staged.ts",
     "pre-push": "deno test"
   }
 }
 ```
+
+💡 You can specify versions of scripts:
+`https://pax.deno.dev/kawarimidoll/deno-dev-template@2.0.1/scripts/setup-hooks.ts`
 
 ### Tasks
 
