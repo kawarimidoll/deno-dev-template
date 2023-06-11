@@ -15,7 +15,7 @@ You can customize as you like.
 Create repository by this template, or just copy `deno.jsonc` in this repository
 to your project.
 
-Run `deno task setup` at first or when you add git hooks definitions.
+Run `deno task setup-hooks` at first or when you add git hooks definitions.
 
 ### Scripts
 
